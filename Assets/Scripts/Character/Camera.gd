@@ -18,7 +18,6 @@ func update_pivot_angle():
 	position = Vector2(xOffset * character.direction.x,yOffset * character.direction.y)
 
 func _on_body_entered(body, Area2D):
-	#print(Area2D.get_global_position())
 	var center = Area2D.get_global_position()
 	var limits = Area2D.get_node('CollisionShape2D').get_shape().get_extents()
 
