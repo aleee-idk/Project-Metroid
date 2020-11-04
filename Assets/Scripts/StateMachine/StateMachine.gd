@@ -7,11 +7,11 @@ var _active: bool = false setget set_active
 
 func _ready():
 	for child in get_children():
-		child.connect("finished", self, "changeState")
+		child.connect("finished", self, "change_state")
 
 	set_active(false)
 
-	return owner.connect("finished", self, "changeState")
+	return owner.connect("finished", self, "change_state")
 
 func _input(event):
 	currentState.handle_input(event);

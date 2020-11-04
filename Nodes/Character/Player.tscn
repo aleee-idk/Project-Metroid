@@ -1,15 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Scripts/Character/movement.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scripts/Character/Player/States/IdleState.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Scripts/Character/Player/PlayerStateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Scripts/Character/Player/States/MovingState.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Scripts/Character/Player/States/JumpingState.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Scripts/Character/Label.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Scripts/Character/Player/States/FallingState.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.7138, 31.5659 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
+friction = 0.09
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -24,7 +29,28 @@ script = ExtResource( 4 )
 script = ExtResource( 3 )
 
 [node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
 
 [node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
 
 [node name="WallSlide" type="Node" parent="StateMachine"]
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = -50.0
+margin_right = 20.0
+margin_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+align = 1
+valign = 1
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

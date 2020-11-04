@@ -7,9 +7,15 @@ func enter():
 
 func handle_input(event):
 	if Input.is_action_just_pressed("ui_jump"):
-		if owner.is_on_floor():
-			print("jumping")
+		emit_signal("finished", "Jumping")
 
 func update(delta):
+
+	owner.move()
+
 	if owner.direction.x != 0:
-		print("moving!")
+		emit_signal("finished", "Moving")
+		
+	if !owner.is_on_floor():
+		emit_signal("finished", "Falling")
+

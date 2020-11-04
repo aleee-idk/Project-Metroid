@@ -7,7 +7,8 @@ func _ready():
 		"Idle"		: 	$Idle,
 		"Moving"	:	$Moving,
 		"Jumping"	: 	$Jumping,
-		"WallSlide"	:	$WallSlade
+		"Falling"	: 	$Falling,
+		"WallSlide"	:	$WallSlide
 	}
 
 	.set_active(true)

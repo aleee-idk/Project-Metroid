@@ -12,6 +12,3 @@ position = Vector2( 0, -100 )
 current = true
 smoothing_enabled = true
 editor_draw_drag_margin = true
-__meta__ = {
-"_edit_group_": true
-}
